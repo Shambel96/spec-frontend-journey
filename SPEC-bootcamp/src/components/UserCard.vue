@@ -1,27 +1,34 @@
 <template>
   <div class="card">
     <h2>{{ name }}</h2>
-    <p>Role: {{ role }}</p>
+    <p class="role">{{ role }}</p>
   </div>
 </template>
 
-<script>
-export default {
-  name: "UserCard",
-  data() {
-    return {
-      name: "Shambel",
-      role: "SWE",
-    }
+<script setup>
+defineProps({
+  name: {
+    type: String,
+    required: true
+  },
+  role: {
+    type: String,
+    required: true
   }
-}
+})
 </script>
 
 <style scoped>
 .card {
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
   padding: 16px;
-  border-radius: 8px;
-  width: 250px;
+  border-radius: 10px;
+  width: 220px;
+  text-align: center;
+}
+
+.role {
+  color: #555;
+  font-size: 14px;
 }
 </style>
