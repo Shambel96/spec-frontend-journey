@@ -1,15 +1,13 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
-  <div>
-   <h1>Hello SPEC Developers </h1>
-  </div>
+  <UserCard />
 </template>
 
-<style scoped>
-h1 {
-  color: #42b983;
+<script>
+import UserCard from "./components/UserCard.vue";
+import HelloWorld from "./components/HelloWorld.vue";
+export default {
+  components: {
+    UserCard
+  }
 }
-</style>
+</script>
