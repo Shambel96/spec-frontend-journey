@@ -1,26 +1,27 @@
-<template>
-  <div class="container">
-    <UserCard name="Mr.Z" role="Team Members"   status="online"
-      @view-profile="handleViewProfile"/>
-    <UserCard name="Mr.X" role="Project Manager"   status="offline"
-      @view-profile="handleViewProfile" />
-    <UserCard name="Mr.Y" role="Admin"   status="online"
-      @view-profile="handleViewProfile"/>
-  </div>
-</template>
+    <template>
+      <div class="container">
+        <h2>Counter App</h2>
+        <Counter />
+      </div>
+    </template>
 
-<script setup>
-import UserCard from "./components/UserCard.vue"
-
-function handleViewProfile(name) {
-  alert(`Viewing profile of ${name}`)
-}
-</script>
-
-<style>
-.container {
-  display: flex;
-  gap: 20px;
-  padding: 20px;
-}
-</style>
+    <script setup>
+    import HelloWorld from './components/HelloWorld.vue'
+    import Counter from './components/Counter.vue'
+    </script>
+    <style scoped>
+    h2 {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+     border: 2px solid #ddd;
+      border-radius: 10px;
+      width: 300px;
+      margin: 50px auto;
+    }
+    </style>
