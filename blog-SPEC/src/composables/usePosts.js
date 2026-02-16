@@ -24,7 +24,12 @@ async function fetchRemote() {
     const res = await fetch('https://jsonplaceholder.typicode.com/posts')
     const data = await res.json()
     // normalize remote shape to { id, title, content }
-    remotePosts.value = data.map(p => ({ id: p.id, title: p.title, content: p.body }))
+    remotePosts.value = data.map(p => ({
+      id: p.id,
+      title: p.title,
+      content: p.body,
+      image: `https://picsum.photos/seed/${p.id}/600/400`
+    }))
   } finally {
     loading.value = false
   }
@@ -53,13 +58,23 @@ async function addPost(post) {
     })
     const created = await res.json()
     // jsonplaceholder returns an id (usually 101); use a stable local id based on Date.now()
-    const local = { id: Date.now(), title: post.title, content: post.content }
+    const local = {
+      id: Date.now(),
+      title: post.title,
+      content: post.content,
+      image: post.image || `https://picsum.photos/seed/local${Date.now()}/600/400`
+    }
     localPosts.value.push(local)
     saveLocal()
     return local
   } catch (e) {
     // fallback: still save locally
-    const local = { id: Date.now(), title: post.title, content: post.content }
+    const local = {
+      id: Date.now(),
+      title: post.title,
+      content: post.content,
+      image: post.image || `https://picsum.photos/seed/local${Date.now()}/600/400`
+    }
     localPosts.value.push(local)
     saveLocal()
     return local
