@@ -1,30 +1,22 @@
 <template>
-  <nav>
-    <RouterLink to="/">Home</RouterLink>
-    <RouterLink to="/create">Create Post</RouterLink>
+  <nav class="navbar">
+    <div class="nav-links">
+      <RouterLink to="/">Home</RouterLink>
+      <RouterLink to="/create">Create Post</RouterLink>
+    </div>
 
-    <button @click="toggleAuth">
+    <button @click="toggleAuth" class="btn btn-primary">
       {{ isAuth ? 'Logout' : 'Login' }}
     </button>
   </nav>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
 
 const isAuth = ref(false)
 
-onMounted(() => {
-  isAuth.value = !!localStorage.getItem('isAuth')
-})
-
 function toggleAuth() {
-  if (isAuth.value) {
-    localStorage.removeItem('isAuth')
-  } else {
-    localStorage.setItem('isAuth', 'true')
-  }
-
   isAuth.value = !isAuth.value
 }
 </script>
