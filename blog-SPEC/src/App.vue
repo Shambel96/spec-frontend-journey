@@ -1,9 +1,10 @@
 <script setup>
-import NavBar from './components/NavBar.vue';
-import PostCard from './components/PostCard.vue';
+import NavBar from './components/NavBar.vue'
+import Footer from './components/Footer.vue'
 </script>
 
 <template>
   <NavBar />
   <RouterView />
+  <Footer />
 </template>
