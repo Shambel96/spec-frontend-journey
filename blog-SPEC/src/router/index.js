@@ -2,12 +2,18 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import PostDetailView from '../views/PostDetailView.vue'
 import CreatePostView from '../views/CreatePostView.vue'
+import AboutView from '../views/About.vue'
 
 const routes = [
   {
     path: '/',
     name: 'home',
     component: HomeView
+  },
+  {
+    path: '/about',
+    name: 'about',
+    component: AboutView
   },
   {
     path: '/post/:id',
@@ -17,9 +23,14 @@ const routes = [
   {
     path: '/create',
     name: 'create-post',
-    component: CreatePostView,
-    meta: { requiresAuth: true }
-  }
+    component: CreatePostView
+  },
+  {
+  path: '/edit/:id',
+  name: 'edit-post',
+  component: CreatePostView
+}
+
 ]
 
 const router = createRouter({
@@ -27,16 +38,6 @@ const router = createRouter({
   routes
 })
 
-/* 🔐 Middleware Protection */
-router.beforeEach((to, from, next) => {
-  const isAuthenticated = localStorage.getItem('isAuth')
-
-  if (to.meta.requiresAuth && !isAuthenticated) {
-    alert('You must login first!')
-    next('/')
-  } else {
-    next()
-  }
-})
+// No auth guard: allow all routes during development so fetched data can be inspected
 
 export default router
