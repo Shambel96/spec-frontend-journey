@@ -27,6 +27,7 @@ const router = createRouter({
   routes
 })
 
+/* 🔐 Middleware Protection */
 router.beforeEach((to, from, next) => {
   const isAuthenticated = localStorage.getItem('isAuth')
 
