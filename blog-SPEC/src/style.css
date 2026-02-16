@@ -83,6 +83,111 @@ body {
   gap: 20px;
 }
 
+/* Hero */
+.hero {
+  height: 320px;
+  background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=80');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-overlay {
+  text-align: center;
+  color: white;
+}
+
+.hero-title {
+  font-size: 64px;
+  letter-spacing: 4px;
+  margin-bottom: 8px;
+}
+
+.hero-sub {
+  font-size: 18px;
+  opacity: 0.95;
+}
+
+/* About page tweaks */
+.about-page { padding-top: 20px; padding-bottom: 40px }
+.about-hero p { max-width: 900px; margin: 0 auto }
+.about-content { margin-top: 18px }
+
+/* Create page styles */
+.create-page {
+  min-height: calc(100vh - 200px);
+  display: flex;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.form-card {
+  background: white;
+  padding: 28px;
+  border-radius: 12px;
+  max-width: 720px;
+  width: 100%;
+  margin: 0 auto;
+  box-shadow: 0 8px 30px rgba(16,24,40,0.08);
+}
+
+.form-title {
+  margin-bottom: 14px;
+  font-size: 28px;
+  color: #0f172a;
+}
+
+.form-field { margin-bottom: 14px }
+.form-field label { display:block; margin-bottom:6px; color:#334155; font-weight:600 }
+.form-field .input { padding: 10px; border:1px solid #e2e8f0; border-radius:8px; width:100% }
+.form-field .textarea { padding:12px; border:1px solid #e2e8f0; border-radius:8px; width:100%; min-height:180px }
+.image-preview { display:block; margin-top:8px; max-width:100%; border-radius:8px; box-shadow: 0 6px 18px rgba(2,6,23,0.08) }
+
+.form-actions { display:flex; justify-content:flex-end; margin-top:8px }
+
+@media (max-width:700px) {
+  .form-card { padding:18px }
+  .form-title { font-size:22px }
+  .form-field .textarea { min-height:140px }
+}
+
+/* Constrain post images to avoid horizontal overflow */
+.card-img {
+  display: block;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.detail-img {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  max-height: 520px;
+  object-fit: contain;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+img { max-width: 100%; height: auto; }
+body { overflow-x: hidden; }
+
+.site-footer .container {
+  display: block;
+}
+
+@media (min-width: 700px) {
+  .site-footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}
+
 /* Forms */
 .input,
 .textarea {
